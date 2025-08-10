@@ -4,8 +4,9 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "cross-env DEBUG_MODE=true nodemon src/index.ts",
-        "start": "node index.js"
+    "dev": "cross-env DEBUG_MODE=true nodemon src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
     },
     "keywords": [],
     "author": "",

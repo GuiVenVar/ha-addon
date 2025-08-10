@@ -1,13 +1,11 @@
 {
-    "name": "ewelink_smart_home",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-    "dev": "cross-env DEBUG_MODE=true nodemon src/index.ts",
-    "build": "tsc",
+  "name": "ewelink_smart_home",
+  "version": "1.0.0",
+  "description": "Connect eWeLink with Home Assistant",
+  "main": "dist/index.js",
+  "scripts": {
     "start": "node dist/index.js"
-    },
+  },
     "keywords": [],
     "author": "",
     "license": "ISC",

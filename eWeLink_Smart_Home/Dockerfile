@@ -10,18 +10,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends python3 build-e
 
 WORKDIR /workspace
 
-# 1) instalar deps (con dev) para poder compilar
+# Instala solo deps de producción a partir de package.json
 COPY ./package.json /workspace/package.json
-COPY ./package-lock.json /workspace/package-lock.json
-RUN npm ci
+RUN npm install --production --no-audit --no-fund
 
-# 2) compilar TS → JS
-COPY ./tsconfig.json /workspace/tsconfig.json
-COPY ./src /workspace/src
-RUN npm run build
-
-# 3) dejar solo deps de producción
-RUN npm prune --production
+# Copia el build ya generado
+COPY ./dist /workspace/dist
 
 EXPOSE 3000
-CMD ["node","dist/index.js"]
+CMD ["node","start"]
